@@ -90,6 +90,13 @@ export default function Home() {
                 icon={<Map className="w-6 h-6" />}
                 gradient="from-emerald-500/20 to-teal-500/20"
               />
+              <LinkCard
+                title="위플 인바운드 DB"
+                description="온라인 문의 및 데이터 관리"
+                href="https://wipledata.vercel.app/data-management/online-check"
+                icon={<Database className="w-6 h-6" />}
+                gradient="from-cyan-500/20 to-blue-500/20"
+              />
             </div>
           </motion.section>
 
