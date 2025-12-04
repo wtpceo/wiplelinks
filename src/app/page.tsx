@@ -10,7 +10,10 @@ import {
   Send,
   FileSpreadsheet,
   LayoutGrid,
-  Sparkles
+  Sparkles,
+  Briefcase,
+  Megaphone,
+  Clapperboard
 } from "lucide-react";
 import { LinkCard } from "@/components/LinkCard";
 
@@ -109,6 +112,30 @@ export default function Home() {
                 description="블로그 포스팅 자동 생성 및 관리"
                 href="https://nonpaid-rubi-arythmically.ngrok-free.dev"
                 icon={<LayoutGrid className="w-6 h-6" />}
+                gradient="from-pink-500/20 to-rose-500/20"
+              />
+            </div>
+          </motion.section>
+
+          {/* Section 4: Portfolios */}
+          <motion.section variants={item} className="space-y-6">
+            <h2 className="text-xl font-semibold text-white/80 flex items-center gap-2">
+              <Briefcase className="w-5 h-5 text-yellow-400" />
+              포트폴리오
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <LinkCard
+                title="위즈더플래닝 마케팅 포트폴리오"
+                description="마케팅 성과 및 사례 모음"
+                href="https://obsidian-quit-df6.notion.site/20938318fea6802e83b3c1d2add64777?pvs=74"
+                icon={<Megaphone className="w-6 h-6" />}
+                gradient="from-yellow-500/20 to-amber-500/20"
+              />
+              <LinkCard
+                title="위즈더플래닝 콘텐츠 제작 포트폴리오"
+                description="콘텐츠 제작 작업물 및 레퍼런스"
+                href="https://obsidian-quit-df6.notion.site/26738318fea680c5978ff75286208b63?pvs=74"
+                icon={<Clapperboard className="w-6 h-6" />}
                 gradient="from-pink-500/20 to-rose-500/20"
               />
             </div>
