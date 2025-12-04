@@ -1,65 +1,144 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  BarChart3,
+  Database,
+  HardDrive,
+  Bot,
+  Map,
+  Send,
+  FileSpreadsheet,
+  LayoutGrid,
+  Sparkles
+} from "lucide-react";
+import { LinkCard } from "@/components/LinkCard";
 
 export default function Home() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen p-8 md:p-12 lg:p-24">
+      <div className="mx-auto max-w-6xl space-y-16">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4"
+        >
+          <div className="inline-flex items-center justify-center p-2 mb-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-yellow-400 mr-2" />
+            <span className="text-sm text-white/80">위즈더플래닝 내부 허브</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/50">
+            위플 링크스
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            모든 대시보드, 자동화 도구 및 리소스에 대한 중앙 집중식 액세스
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </motion.div>
+
+        {/* Links Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid gap-8"
+        >
+          {/* Section 1: Data & Dashboards */}
+          <motion.section variants={item} className="space-y-6">
+            <h2 className="text-xl font-semibold text-white/80 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-blue-400" />
+              데이터 및 대시보드
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <LinkCard
+                title="위즈더플래닝 매출 데이터"
+                description="실시간 매출 및 성과 지표 확인"
+                href="https://wipledata.vercel.app/"
+                icon={<BarChart3 className="w-6 h-6" />}
+                gradient="from-blue-500/20 to-cyan-500/20"
+              />
+              <LinkCard
+                title="사장님 댓글 자동화 대시보드"
+                description="자동 응답 로그 및 상태 모니터링"
+                href="https://auto-review-dashboard.vercel.app/logs"
+                icon={<Bot className="w-6 h-6" />}
+                gradient="from-indigo-500/20 to-purple-500/20"
+              />
+              <LinkCard
+                title="포커스 미디어 설치현황 맵"
+                description="설치 현황 및 위치 매핑"
+                href="https://focusmedia.vercel.app/"
+                icon={<Map className="w-6 h-6" />}
+                gradient="from-emerald-500/20 to-teal-500/20"
+              />
+            </div>
+          </motion.section>
+
+          {/* Section 2: Automation & Tools */}
+          <motion.section variants={item} className="space-y-6">
+            <h2 className="text-xl font-semibold text-white/80 flex items-center gap-2">
+              <Bot className="w-5 h-5 text-purple-400" />
+              자동화 및 도구
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <LinkCard
+                title="포커스미디어 견적서 자동발송"
+                description="견적서 자동 생성 및 발송 시스템"
+                href="https://focus-rust-six.vercel.app/"
+                icon={<Send className="w-6 h-6" />}
+                gradient="from-orange-500/20 to-red-500/20"
+              />
+              <LinkCard
+                title="블로그 자동화"
+                description="블로그 포스팅 자동 생성 및 관리"
+                href="https://nonpaid-rubi-arythmically.ngrok-free.dev"
+                icon={<LayoutGrid className="w-6 h-6" />}
+                gradient="from-pink-500/20 to-rose-500/20"
+              />
+            </div>
+          </motion.section>
+
+          {/* Section 3: Resources */}
+          <motion.section variants={item} className="space-y-6">
+            <h2 className="text-xl font-semibold text-white/80 flex items-center gap-2">
+              <Database className="w-5 h-5 text-green-400" />
+              리소스
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <LinkCard
+                title="드림에이지 인바운드 DB"
+                description="드림에이지 인바운드 고객 데이터베이스"
+                href="https://docs.google.com/spreadsheets/d/17HN-5-rAhOcMtV-f_2TST2md3sbcarhP2nItJk1XXrY/edit?gid=59310311#gid=59310311"
+                icon={<FileSpreadsheet className="w-6 h-6" />}
+                gradient="from-green-500/20 to-emerald-500/20"
+              />
+              <LinkCard
+                title="위플 구글 드라이브"
+                description="회사 공유 드라이브 및 문서"
+                href="https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-globalnav-goto"
+                icon={<HardDrive className="w-6 h-6" />}
+                gradient="from-yellow-500/20 to-orange-500/20"
+              />
+            </div>
+          </motion.section>
+        </motion.div>
+      </div>
+    </main>
   );
 }
