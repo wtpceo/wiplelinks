@@ -100,7 +100,7 @@ export default function Home() {
             <LinkCard
               title="블로그 자동화"
               description="포스팅 관리"
-              href="https://nonpaid-rubi-arythmically.ngrok-free.dev"
+              href="https://blog-automation2.vercel.app/"
               icon={<LayoutGrid className="w-5 h-5" />}
               gradient="from-pink-500/20 to-rose-500/20"
               compact
