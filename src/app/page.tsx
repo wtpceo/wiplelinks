@@ -13,7 +13,9 @@ import {
   Sparkles,
   Briefcase,
   Megaphone,
-  Clapperboard
+  Clapperboard,
+  Building2,
+  MapPinOff
 } from "lucide-react";
 import { LinkCard } from "@/components/LinkCard";
 
@@ -108,13 +110,23 @@ export default function Home() {
           </motion.div>
 
           {/* Maps & DB */}
-          <motion.div variants={item} className="md:col-span-2">
+          <motion.div variants={item} className="md:col-span-1">
             <LinkCard
               title="포커스 미디어 맵"
               description="설치 현황 및 위치 매핑"
               href="https://focusmedia.vercel.app/"
-              icon={<Map className="w-6 h-6" />}
+              icon={<Map className="w-5 h-5" />}
               gradient="from-emerald-500/20 to-teal-500/20"
+              compact
+            />
+          </motion.div>
+          <motion.div variants={item} className="md:col-span-1">
+            <LinkCard
+              title="미방문 지역"
+              description="포커스미디어 미방문 리스트"
+              href="https://focus2-blush.vercel.app/"
+              icon={<MapPinOff className="w-5 h-5" />}
+              gradient="from-rose-500/20 to-red-500/20"
               compact
             />
           </motion.div>
@@ -152,6 +164,16 @@ export default function Home() {
           </motion.div>
 
           {/* Resources */}
+          <motion.div variants={item} className="md:col-span-1">
+            <LinkCard
+              title="위즈더플래닝"
+              description="회사 홈페이지"
+              href="https://www.wiztheplanning.com"
+              icon={<Building2 className="w-5 h-5" />}
+              gradient="from-violet-500/20 to-purple-500/20"
+              compact
+            />
+          </motion.div>
           <motion.div variants={item} className="md:col-span-1">
             <LinkCard
               title="드림에이지 DB"
